@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Sign-Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #1a1208;
+      --cream:  #f5f0e8;
+      --sand:   #e8dfc8;
+      --rust:   #c0622a;
+      --rust-d: #9e4d1e;
+      --muted:  #7a6e5f;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(192,98,42,.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(192,98,42,.06) 0%, transparent 45%);
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--sand);
+      border-radius: 2px;
+      max-width: 480px;
+      width: 100%;
+      padding: 3rem 3rem 2.5rem;
+      box-shadow: 6px 6px 0 var(--sand);
+      animation: rise .6s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--rust);
+      border: 1px solid var(--rust);
+      border-radius: 2px;
+      padding: .2rem .55rem;
+      margin-bottom: 1.1rem;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.1rem;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: .6rem;
+    }
+
+    .subtitle {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--sand);
+      margin-bottom: 2rem;
+    }
+
+    .field {
+      margin-bottom: 1.4rem;
+    }
+
+    label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .45rem;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: .75rem 1rem;
+      border: 1px solid var(--sand);
+      border-radius: 2px;
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    input:focus {
+      border-color: var(--rust);
+      box-shadow: 0 0 0 3px rgba(192,98,42,.12);
+      background: #fff;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: .85rem;
+      margin-top: 1.8rem;
+      background: var(--rust);
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+
+    .btn:hover  { background: var(--rust-d); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .success-msg {
+      display: none;
+      margin-top: 1.2rem;
+      padding: .9rem 1rem;
+      background: #edf7ef;
+      border: 1px solid #a8d5b1;
+      border-radius: 2px;
+      font-size: .88rem;
+      color: #2d6a3f;
+      text-align: center;
+    }
+
+    .error-msg {
+      display: none;
+      margin-top: 1.2rem;
+      padding: .9rem 1rem;
+      background: #fdecea;
+      border: 1px solid #f0a9a2;
+      border-radius: 2px;
+      font-size: .88rem;
+      color: #8b2015;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: .75rem;
+      color: var(--sand);
+      text-align: center;
+      letter-spacing: .04em;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">Sign Up</span>
+    <h1>Stay in the Loop</h1>
+    <p class="subtitle">Enter your details below and we'll keep you updated.</p>
+    <div class="divider"></div>
+
+    <!--
+      ACTION: Replace the URL below with your actual PHP file URL
+      Example: action="https://yoursite.infinityfree.net/submit.php"
+    -->
+    <form id="contactForm" action="https://http://yusif-mo.page.gd/.infinityfreeapp.com/submit.php" method="POST">
+      <div class="field">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+      </div>
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+      </div>
+      <button class="btn" type="submit">Submit →</button>
+    </form>
+
+    <div class="success-msg" id="successMsg">✓ Thanks! Your info has been saved.</div>
+    <div class="error-msg"  id="errorMsg">Something went wrong. Please try again.</div>
+
+    <footer>Built for CIS · Spring 2026</footer>
+  </div>
+
+  <script>
+    const form       = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg   = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      successMsg.style.display = 'none';
+      errorMsg.style.display   = 'none';
+
+      const btn = form.querySelector('.btn');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          mode: 'no-cors'   // needed for cross-origin PHP hosts
+        });
+        successMsg.style.display = 'block';
+        form.reset();
+      } catch (err) {
+        errorMsg.style.display = 'block';
+      } finally {
+        btn.textContent = 'Submit →';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
